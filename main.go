@@ -9,10 +9,10 @@ import (
 
 func main() {
 	r := httprouter.New()
-	uc := controllers.NewUserControllers(getSession())
+	uc := controllers.NewUserController(getSession())
 	r.GET("/user/id", uc.GetUser)
-	r.POST("/user".uc.CreateUser)
-	r.DELETE("/user/id".uc.DeleteUser)
+	r.POST("/user", uc.CreateUser)
+	r.DELETE("/user/id", uc.DeleteUser)
 	http.ListenAndServe("localhost:9000", r)
 }
 
